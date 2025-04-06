@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { User } from "./interfaces";
 import { socket } from "./services/socket";
+import Login from "./components/Login";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -17,7 +18,11 @@ const App = () => {
     setCurrentUser(null);
   };
 
-  return <div>App</div>;
+  return (
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Login onLogin={handleLogin} />
+    </div>
+  );
 };
 
 export default App;
